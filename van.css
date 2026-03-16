@@ -1,0 +1,106 @@
+.van-hero {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 6rem 2rem 2rem;
+}
+
+.van-hero h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: 0.75rem;
+}
+
+.van-hero p {
+  color: var(--muted);
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.van-intro {
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 2rem 2rem 4rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.van-intro p {
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+/* Slides */
+.slides {
+  position: relative;
+}
+
+.slide {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.slide-image {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transform: scale(1.03);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  background-color: var(--surface);
+}
+
+.slide.visible .slide-image {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.slide::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 60%);
+  z-index: 1;
+}
+
+.slide-caption {
+  position: relative;
+  z-index: 2;
+  padding: 2.5rem 2rem;
+  max-width: 600px;
+}
+
+.slide-caption h2 {
+  font-size: 1.5rem;
+  text-transform: none;
+  letter-spacing: normal;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.slide-caption p {
+  color: rgba(255,255,255,0.7);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  max-width: 480px;
+}
+
+/* No image placeholder */
+.slide-image::before {
+  content: 'Image coming soon';
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--border);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
