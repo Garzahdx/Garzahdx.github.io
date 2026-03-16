@@ -2,11 +2,11 @@ const slides = document.querySelectorAll('.slide');
 
 function updateSlides() {
   const vh = window.innerHeight;
-  const centerY = window.scrollY + vh / 2;
 
   slides.forEach(slide => {
-    const slideCenter = slide.offsetTop + slide.offsetHeight / 2;
-    const distance = Math.abs(centerY - slideCenter);
+    const rect = slide.getBoundingClientRect();
+    const slideCenter = rect.top + rect.height / 2;
+    const distance = Math.abs(slideCenter - vh / 2);
     const progress = Math.min(distance / (vh * 0.75), 1);
 
     const blur = progress * 10;
