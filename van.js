@@ -1,15 +1,22 @@
 const slides = document.querySelectorAll('.slide');
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    } else {
-      entry.target.classList.remove('visible');
-    }
-  });
-}, {
-  threshold: 0.15
-});
+function updateSlides() {
+  const vh = window.innerHeight;
+  const centerY = window.scrollY + vh / 2;
 
-slides.forEach(slide => observer.observe(slide));
+  slides.forEach(slide => {
+    const slideCenter = slide.offsetTop + slide.offsetHeight / 2;
+    const distance = Math.abs(centerY - slideCenter);
+    const progress = Math.min(distance / (vh * 0.75), 1);
+
+    const blur = progress * 10;
+    const opacity = 1 - progress * 0.85;
+
+    const img = slide.querySelector('.slide-image');
+    img.style.filter = `blur(${blur}px)`;
+    img.style.opacity = opacity;
+  });
+}
+
+window.addEventListener('scroll', updateSlides, { passive: true });
+updateSlides();

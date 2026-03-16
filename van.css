@@ -51,12 +51,8 @@
   background-size: cover;
   background-position: center;
   opacity: 0;
-  transition: opacity 1.4s ease;
   background-color: var(--surface);
-}
-
-.slide.visible .slide-image {
-  opacity: 1;
+  will-change: opacity, filter;
 }
 
 .slide::after {
