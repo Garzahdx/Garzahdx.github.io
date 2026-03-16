@@ -115,6 +115,14 @@
   line-height: 1.8;
 }
 
+.project-section.stacked {
+  grid-template-columns: 1fr;
+}
+
+.project-section.stacked .project-image-wrap {
+  width: 100%;
+}
+
 /* Clickable images */
 .project-image-wrap img {
   cursor: zoom-in;
