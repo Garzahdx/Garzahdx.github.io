@@ -102,9 +102,35 @@ h2 {
 }
 
 /* About */
-#about p {
+.about-inner {
+  display: flex;
+  align-items: flex-start;
+  gap: 2.5rem;
+}
+
+.about-text p {
   color: var(--muted);
-  max-width: 560px;
+}
+
+.about-text p + p {
+  margin-top: 1rem;
+}
+
+.about-photo {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  flex-shrink: 0;
+  border: 1px solid var(--border);
+}
+
+@media (max-width: 600px) {
+  .about-inner {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
 }
 
 /* Projects */
