@@ -121,7 +121,7 @@ h2 {
   height: 160px;
   border-radius: 50%;
   object-fit: cover;
-  object-position: center 15%;
+  object-position: 55% 5%;
   flex-shrink: 0;
   border: 1px solid var(--border);
 }
